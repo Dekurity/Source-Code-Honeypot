@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Honeypot Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .logs {
+            max-height: 400px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .clear-logs-btn {
+            background-color: #ff4c4c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .clear-logs-btn:hover {
+            background-color: #ff1c1c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Honeypot Dashboard</h1>
+    <p>Total Attacks: {{ total_attacks }}</p>
+
+    <h2>Recent Logs</h2>
+    <div class="logs">
+        <ul>
+            {% for log in logs %}
+            <li>{{ log }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <h2>Attack Statistics</h2>
+    <table>
+        <tr>
+            <th>IP Address</th>
+            <th>Number of Attacks</th>
+        </tr>
+        {% for ip, count in ip_attack_count.items() %}
+        <tr>
+            <td>{{ ip }}</td>
+            <td>{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form method="POST" action="/clear-logs">
+        <button type="submit" class="clear-logs-btn">Clear Logs</button>
+    </form>
+</body>
+</html>
