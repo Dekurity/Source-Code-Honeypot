@@ -24,8 +24,8 @@ Ini adalah aplikasi honeypot yang dikembangkan oleh Dekurity. Aplikasi ini diran
 
 1. **Klon repo:**
     ```bash
-    git clone https://github.com/Dekurity/honeypot.git
-    cd honeypot
+    git clone https://github.com/Dekurity/Source-Code-Honeypot.git
+    cd Source-Code-Honeypot
     ```
 
 2. **Buat lingkungan virtual dan aktifkan:**
